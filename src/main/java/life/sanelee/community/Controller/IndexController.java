@@ -1,4 +1,4 @@
-package life.sanelee.community.Conttroller;
+package life.sanelee.community.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
