@@ -18,3 +18,8 @@
 
 ##调用github,登录流程
 ![Image text](https://raw.githubusercontent.com/sanelee38/picture/master/picture/login.PNG)
+
+
+##第三天
+
+##把所有需要的变量封装到application.properties中
