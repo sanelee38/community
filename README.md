@@ -26,3 +26,5 @@
 ##把所有需要的变量封装到application.properties中
 
 ##Session和Cookies,实现登录、显示用户名
+
+##加入H2数据库
