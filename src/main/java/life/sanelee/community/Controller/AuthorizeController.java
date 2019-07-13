@@ -2,6 +2,8 @@ package life.sanelee.community.Controller;
 
 import life.sanelee.community.DTO.AccessTokenDTO;
 import life.sanelee.community.DTO.GithubUser;
+import life.sanelee.community.mapper.UserMapper;
+import life.sanelee.community.model.User;
 import life.sanelee.community.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +26,9 @@ public class AuthorizeController {
     @Value("${github.redirect.uri}")
     private String clientRedirectUri;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code") String code,
                            @RequestParam(name="state")String state,
@@ -37,6 +42,7 @@ public class AuthorizeController {
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser user = githubProvider.getUser(accessToken);
         if (user != null) {
+            userMapper.insert(new User());
             //登陆成功，写cookie和session
             request.getSession().setAttribute("user",user);
             return "redirect:/";
