@@ -1,8 +1,8 @@
 package life.sanelee.community.provider;
 
 import com.alibaba.fastjson.JSON;
-import life.sanelee.community.DTO.AccessTokenDTO;
-import life.sanelee.community.DTO.GithubUser;
+import life.sanelee.community.dto.AccessTokenDTO;
+import life.sanelee.community.dto.GithubUser;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 

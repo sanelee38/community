@@ -1,4 +1,4 @@
-package life.sanelee.community.DTO;
+package life.sanelee.community.dto;
 
 public class AccessTokenDTO {
     private String client_id;
