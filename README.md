@@ -51,3 +51,22 @@ Session和Cookies,实现登录、显示用户名
         原因：数据库数据项目与返回数据项目不匹配。
         
         解决：添加数据项目，解决问题。
+        
+##第六天
+
+#脚本
+
+        create table USER_1
+        (
+            ID int,Auto_increment primary key not null
+            ACCOUNT_ID varchar(100),
+            NAME varchar(50),
+            TOKEN varchar(36),
+            GMT_CREATE bigint,
+            GMT_MODIFIED bigint
+        );
+
+
+
+
+
