@@ -56,7 +56,7 @@ Session和Cookies,实现登录、显示用户名
 
 #脚本
 
-        create table USER_1
+        create table USER
         (
             ID int,Auto_increment primary key not null
             ACCOUNT_ID varchar(100),
