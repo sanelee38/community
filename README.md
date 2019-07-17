@@ -58,7 +58,7 @@ Session和Cookies,实现登录、显示用户名
 
         create table USER
         (
-            ID int,Auto_increment primary key not null
+            ID int,Auto_increment primary key not null,
             ACCOUNT_ID varchar(100),
             NAME varchar(50),
             TOKEN varchar(36),
