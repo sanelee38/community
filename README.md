@@ -1,4 +1,4 @@
-##第一天,第一次使用
+#第一天,第一次使用
 
 ##参考b站码匠社区
 
@@ -16,13 +16,13 @@
 
 [git](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
 
-##第二天
+#第二天
 
 调用github,登录流程
 ![Image text](https://raw.githubusercontent.com/sanelee38/picture/master/picture/login.PNG)
 
 
-##第三天
+#第三天
 
 把所有需要的变量封装到application.properties中
 
@@ -30,11 +30,11 @@ Session和Cookies,实现登录、显示用户名
 
 加入H2数据库
 
-##第四天
+#第四天
 
 [Spring](https://docs.spring.io/spring-boot/docs/2.0.0.RC1/reference/htmlsingle/#boot-features-embedded-database-support)
 
-##第五天
+#第五天
 
 ##集成mybatis并实现插入操作，登录用户数据返回到h2数据库
 
@@ -52,9 +52,9 @@ Session和Cookies,实现登录、显示用户名
         
         解决：添加数据项目，解决问题。
         
-##第六天
+#第六天
 
-#脚本
+##脚本
 
         create table USER
         (
@@ -65,6 +65,13 @@ Session和Cookies,实现登录、显示用户名
             GMT_CREATE bigint,
             GMT_MODIFIED bigint
         );
+        
+#第七天，第八天
+
+##集成Flyway Migration,使用Bootstrap编写发布问题页面，并完成发布文章功能
+
+##遇到的问题
+1.flyway migration集成
 
 
 
