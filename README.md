@@ -73,6 +73,9 @@ Session和Cookies,实现登录、显示用户名
 ##遇到的问题
 1.flyway migration集成
 
+#第九天
+##完成发布问题到首页列表显示功能
+
 
 
 
