@@ -56,15 +56,14 @@ Session和Cookies,实现登录、显示用户名
 
 ##脚本
 
-        create table USER
-        (
-            ID int,Auto_increment primary key not null,
-            ACCOUNT_ID varchar(100),
-            NAME varchar(50),
-            TOKEN varchar(36),
-            GMT_CREATE bigint,
-            GMT_MODIFIED bigint
-        );
+    create table USER
+    (ID int,Auto_increment primary key not null,
+     ACCOUNT_ID varchar(100),
+     NAME varchar(50),
+     TOKEN varchar(36),
+     GMT_CREATE bigint,
+     GMT_MODIFIED bigint
+     );
         
 #第七天，第八天
 
