@@ -2,9 +2,9 @@ package life.sanelee.community.Controller;
 
 import life.sanelee.community.dto.AccessTokenDTO;
 import life.sanelee.community.dto.GithubUser;
-import life.sanelee.community.mapper.UserMapper;
 import life.sanelee.community.model.User;
 import life.sanelee.community.provider.GithubProvider;
+import life.sanelee.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -29,8 +29,9 @@ public class AuthorizeController {
     @Value("${github.redirect.uri}")
     private String clientRedirectUri;
 
+
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code") String code,
@@ -51,10 +52,8 @@ public class AuthorizeController {
             user.setToken(token);
             user.setName(githubUser.getName());
             user.setAccountId(String.valueOf(githubUser.getId()));
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGmtModified(user.getGmtCreate());
             user.setAvatarUrl(githubUser.getAvatarUrl());
-            userMapper.insert(user);
+            userService.createOrUpdate(user);
             response.addCookie(new Cookie("token",token));
             //登陆成功，写cookie和session
             return "redirect:/";
@@ -62,5 +61,14 @@ public class AuthorizeController {
             //登陆失败，重新登陆
             return "redirect:/";
         }
+    }
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request,
+                         HttpServletResponse response){
+        request.getSession().removeAttribute("user");
+        Cookie cookie = new Cookie("token",null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return "redirect:/";
     }
 }
