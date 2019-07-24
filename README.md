@@ -55,7 +55,7 @@ Session和Cookies,实现登录、显示用户名
 #第六天
 
 ##脚本
-
+```
     create table USER
     (ID int,Auto_increment primary key not null,
      ACCOUNT_ID varchar(100),
@@ -64,6 +64,11 @@ Session和Cookies,实现登录、显示用户名
      GMT_CREATE bigint,
      GMT_MODIFIED bigint
      );
+ ```
+ ```bash
+ mvn flyway:migrate
+ mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+ ```
         
 #第七天，第八天
 
@@ -80,7 +85,9 @@ Session和Cookies,实现登录、显示用户名
 
 ##完成首页列表分页、问题编辑以及退出登录等功能
 
+#第十二天
 
+##完成更新问题功能，集成Mybatis Generator
 
 
 
