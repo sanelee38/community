@@ -1,30 +1,80 @@
-body{
+body {
     background-color: #efefef;
 }
 
-.main{
+.main {
     background-color: white;
     margin: 30px;
 }
 
-.btn-publish{
+.btn-publish {
     float: right;
     margin-bottom: 15px;
 }
+
 .media-object {
     width: 40px;
     height: 40px;
 }
-.text_desc{
-    front-size:12px;
-    fron-weight:normal;
+
+.media-body {
+    padding-top: 11px
+}
+
+.text_desc {
+    font-size: 12px;
+    fon-weight: normal;
     color: #999;
 }
-.profile .section{
-    margin-top:15px;
+
+.profile .section {
+    margin-top: 15px;
 }
 
 .community_menu {
+    display: block;
     color: #999;
     font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.jumbotron {
+    margin: 50px;
+}
+
+.comment {
+    margin: 10px 0;
+}
+
+.btn-comment {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.comments {
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.comment-sp {
+    margin-top: 0;
+}
+
+.menu {
+    color: #9999;
+    margin-top: 7px;
+}
+
+.menu .icon {
+    margin-right: 15px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.menu .icon:hover {
+    color: #2b669a;
+}
+.question-title{
+    margin-top: 25px;
 }
