@@ -2,6 +2,7 @@ package life.sanelee.community.Controller;
 
 import life.sanelee.community.dto.CommentDTO;
 import life.sanelee.community.dto.QuestionDTO;
+import life.sanelee.community.enums.CommentTypeEnum;
 import life.sanelee.community.service.CommentService;
 import life.sanelee.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class QuestionController {
     @GetMapping("/question/{id}")
     public String question(@PathVariable(name = "id") Long id, Model model){
         QuestionDTO questionDTo = questionService.getById(id);
-        List<CommentDTO> comments = commentService.listByQuestionId(id);
+        List<CommentDTO> comments = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
 
         questionService.incView(id);
         model.addAttribute("question",questionDTo);

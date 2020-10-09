@@ -46,8 +46,8 @@ public class PaginationDTO {
         } else {
             showFirstPage = true;
         }
-        //是否展示最后一页
         if (pages.contains(totalPage)) {
+            //是否展示最后一页
             showEndPage = false;
         } else {
             showEndPage = true;

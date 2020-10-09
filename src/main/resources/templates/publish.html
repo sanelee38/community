@@ -2,12 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>发布-理智社区</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/community.css">
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <meta name="viewport" http-equiv="Content-Type" content="text/html; charset=UTF-8;width=device-width, initial-scale=1" />    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/community.css">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js" type="application/javascript"></script>
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
@@ -26,9 +25,13 @@
                 </div>
                 <div class="form-group">
                     <label for="description">问题补充（必填，参照右边提示）：</label>
-                    <textarea th:name="description" id="description" th:text="${description}" class="form-control"
-                              cols="30"
-                              rows="10"></textarea>
+                    <pre>
+                        <textarea th:name="description" id="description" th:text="${description}" class="form-control"
+                                  cols="30"
+                                  rows="10"></textarea>
+                    </pre>
+
+
                 </div>
                 <div class="form-group">
                     <label for="tag">添加标签：</label>

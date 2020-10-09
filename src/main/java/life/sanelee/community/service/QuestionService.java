@@ -2,6 +2,7 @@ package life.sanelee.community.service;
 
 import life.sanelee.community.dto.PaginationDTO;
 import life.sanelee.community.dto.QuestionDTO;
+import life.sanelee.community.dto.QuestionQueryDTO;
 import life.sanelee.community.exception.CustomizeErrorCode;
 import life.sanelee.community.exception.CustomizeException;
 import life.sanelee.community.mapper.QuestionExtMapper;
@@ -10,13 +11,16 @@ import life.sanelee.community.mapper.UserMapper;
 import life.sanelee.community.model.Question;
 import life.sanelee.community.model.QuestionExample;
 import life.sanelee.community.model.User;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {
@@ -29,11 +33,18 @@ public class QuestionService {
     @Autowired
     private UserMapper userMapper;
 
-    public PaginationDTO list(Integer page, Integer size) {
+    public PaginationDTO list(String search,Integer page, Integer size) {
+
+        if(StringUtils.isNotBlank(search)){
+            String[] tags = StringUtils.split(search," ");
+            search = Arrays.stream(tags).collect(Collectors.joining("|"));
+        }
 
         PaginationDTO paginationDTO = new PaginationDTO();
         Integer totalPage;
-        Integer totalCount = (int) questionMapper.countByExample(new QuestionExample());
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(search);
+        Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
         if (totalCount % size == 0) {
             totalPage = totalCount / size;
         } else {
@@ -47,9 +58,12 @@ public class QuestionService {
             page = totalPage;
         }
         paginationDTO.setPagination(totalPage, page);
-        //size*(page-1)
         Integer offset = size * (page - 1);
-        List<Question> questions = questionMapper.selectByExampleWithRowbounds(new QuestionExample(), new RowBounds(offset, size));
+        QuestionExample questionExample = new QuestionExample();
+        questionExample.setOrderByClause("gmt_create desc");
+        questionQueryDTO.setSize(size);
+        questionQueryDTO.setPage(offset);
+        List<Question> questions = questionExtMapper.selectBySearch(questionQueryDTO);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         for (Question question : questions) {
